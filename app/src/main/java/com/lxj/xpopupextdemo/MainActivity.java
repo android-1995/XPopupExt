@@ -81,13 +81,27 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onCityConfirm(int provinceIndex, int cityIndex, int areaIndex, View v) {
                         Log.e("tag", provinceIndex + " - " + cityIndex + " - " + areaIndex);
-                        Toast.makeText(MainActivity.this, provinceIndex + " - " + cityIndex + " - " + areaIndex, Toast.LENGTH_SHORT).show();
+                        if(provinceIndex>=options1Items.size())return;
+                        if(provinceIndex>=options2Items.size() || cityIndex>=options2Items.get(provinceIndex).size())return;
+                        if(provinceIndex>=options3Items.size() || cityIndex>=options3Items.get(provinceIndex).size()
+                                || areaIndex>=options3Items.get(provinceIndex).get(cityIndex).size())return;
+                        String province = options1Items.get(provinceIndex);
+                        String city = options2Items.get(provinceIndex).get(cityIndex);
+                        String area = options3Items.get(provinceIndex).get(cityIndex).get(areaIndex);
+                        Toast.makeText(MainActivity.this, province + " - " + city + " - " + area, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCityChange(int provinceIndex, int cityIndex, int areaIndex) {
                         Log.e("tag", provinceIndex + " - " + cityIndex + " - " + areaIndex);
-                        Toast.makeText(MainActivity.this, provinceIndex + " - " + cityIndex + " - " + areaIndex, Toast.LENGTH_SHORT).show();
+                        if(provinceIndex>=options1Items.size())return;
+                        if(provinceIndex>=options2Items.size() || cityIndex>=options2Items.get(provinceIndex).size())return;
+                        if(provinceIndex>=options3Items.size() || cityIndex>=options3Items.get(provinceIndex).size()
+                                || areaIndex>=options3Items.get(provinceIndex).get(cityIndex).size())return;
+                        String province = options1Items.get(provinceIndex);
+                        String city = options2Items.get(provinceIndex).get(cityIndex);
+                        String area = options3Items.get(provinceIndex).get(cityIndex).get(areaIndex);
+                        Toast.makeText(MainActivity.this, province + " - " + city + " - " + area, Toast.LENGTH_SHORT).show();
                     }
                 });
                 new XPopup.Builder(MainActivity.this)

@@ -5,7 +5,7 @@ XPopupExt是XPopup的扩展功能库，由于对PickerView自身的UI和交互�
 ![](gif/preview.gif)
 
 ## 使用
-[![](https://jitpack.io/v/li-xiaojun/XPopupExt.svg)](https://jitpack.io/#li-xiaojun/XPopupExt)
+[![](https://jitpack.io/v/android-1995/XPopupExt.svg)](https://jitpack.io/#android-1995/XPopupExt)
 - 添加依赖
 ```
 implementation 'com.github.li-xiaojun:XPopupExt:最新版本看上面'
