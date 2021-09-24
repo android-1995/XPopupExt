@@ -1,4 +1,4 @@
-package com.lxj.xpopupext.bean;
+package com.lxj.xpopupextdemo;
 
 
 import com.contrarywind.interfaces.IPickerViewData;

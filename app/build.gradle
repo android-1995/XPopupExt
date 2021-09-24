@@ -25,4 +25,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.github.li-xiaojun:XPopup:2.2.25'
     implementation project(":ext")
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
