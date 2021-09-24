@@ -29,6 +29,11 @@ public class CityPickerPopup<T> extends BottomPopupView {
     private List<T> mOptions1Items;
     private List<List<T>> mOptions2Items;
     private List<List<List<T>>> mOptions3Items;
+    private boolean isCyclic = false; //是否循环
+    private CharSequence submitText; //确定的文案
+    private CharSequence cancelText; //取消的文案
+    private int itemsVisibleCount = 7;
+    private int itemTextSize = 18;
 
     public CityPickerPopup(@NonNull Context context) {
         super(context);
@@ -46,6 +51,12 @@ public class CityPickerPopup<T> extends BottomPopupView {
         super.onCreate();
         btnCancel = findViewById(R.id.btnCancel);
         btnConfirm = findViewById(R.id.btnConfirm);
+        if (submitText != null) {
+            btnConfirm.setText(submitText);
+        }
+        if (cancelText != null) {
+            btnCancel.setText(cancelText);
+        }
         btnCancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,10 +87,10 @@ public class CityPickerPopup<T> extends BottomPopupView {
                 }
             });
         }
-        wheelOptions.setTextContentSize(18);
-        wheelOptions.setItemsVisible(7);
+        wheelOptions.setTextContentSize(itemTextSize);
+        wheelOptions.setItemsVisible(itemsVisibleCount);
         wheelOptions.setAlphaGradient(true);
-        wheelOptions.setCyclic(false);
+        wheelOptions.setCyclic(isCyclic);
 
         wheelOptions.setDividerColor(popupInfo.isDarkTheme ? Color.parseColor("#444444") : dividerColor);
         wheelOptions.setDividerType(WheelView.DividerType.FILL);
@@ -132,36 +143,67 @@ public class CityPickerPopup<T> extends BottomPopupView {
      *
      * @param option1
      */
-    public void setSelectOptions(int option1) {
+    public CityPickerPopup<T> setSelectOptions(int option1) {
         this.option1 = option1;
+        return this;
     }
 
 
-    public void setSelectOptions(int option1, int option2) {
+    public CityPickerPopup<T> setSelectOptions(int option1, int option2) {
         this.option1 = option1;
         this.option2 = option2;
+        return this;
     }
 
-    public void setSelectOptions(int option1, int option2, int option3) {
+    public CityPickerPopup<T> setSelectOptions(int option1, int option2, int option3) {
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
+        return this;
     }
 
-    public void setPicker(List<T> optionsItems) {
+    public CityPickerPopup<T> setPicker(List<T> optionsItems) {
         this.setPicker(optionsItems, null, null);
+        return this;
     }
 
-    public void setPicker(List<T> options1Items, List<List<T>> options2Items) {
+    public CityPickerPopup<T> setPicker(List<T> options1Items, List<List<T>> options2Items) {
         this.setPicker(options1Items, options2Items, null);
+        return this;
     }
 
-    public void setPicker(List<T> options1Items,
-                          List<List<T>> options2Items,
-                          List<List<List<T>>> options3Items) {
+    public CityPickerPopup<T> setPicker(List<T> options1Items,
+                                        List<List<T>> options2Items,
+                                        List<List<List<T>>> options3Items) {
         mOptions1Items = options1Items;
         mOptions2Items = options2Items;
         mOptions3Items = options3Items;
+        return this;
     }
 
+    public CityPickerPopup<T> setCyclic(boolean cyclic) {
+        this.isCyclic = cyclic;
+        return this;
+    }
+
+
+    public CityPickerPopup<T> setSubmitText(CharSequence submitText) {
+        this.submitText = submitText;
+        return this;
+    }
+
+    public CityPickerPopup<T> setCancelText(CharSequence cancelText) {
+        this.cancelText = cancelText;
+        return this;
+    }
+
+    public CityPickerPopup<T> setItemsVisibleCount(int itemsVisibleCount) {
+        this.itemsVisibleCount = itemsVisibleCount;
+        return this;
+    }
+
+    public CityPickerPopup<T> setItemTextSize(int textSize) {
+        this.itemTextSize = textSize;
+        return this;
+    }
 }
