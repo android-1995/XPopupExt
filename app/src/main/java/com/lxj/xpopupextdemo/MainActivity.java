@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         .setDefaultDate(date)  //设置默认选中日期
 //                        .setYearRange(1990, 1999) //设置年份范围
                         .setDateRange(date, date2) //设置日期范围
+                        .setCyclic(false) //设置不循环
                         .setTimePickerListener(new TimePickerListener() {
                             @Override
                             public void onTimeChanged(Date date) {
