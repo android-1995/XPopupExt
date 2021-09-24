@@ -32,7 +32,7 @@ public class TimePickerPopup extends BottomPopupView {
     public TimePickerListener timePickerListener;
     private Mode mode = Mode.YMD;
     private boolean isLunar = false; //是否是农历
-    private boolean isCyclic = true; //是否循环
+    private boolean isCyclic = false; //是否循环
     private CharSequence submitText; //确定的文案
     private CharSequence cancelText; //取消的文案
     private int startYear = 0;
