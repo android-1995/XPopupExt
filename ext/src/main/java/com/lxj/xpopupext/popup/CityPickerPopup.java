@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import com.contrarywind.view.WheelView;
@@ -204,6 +205,35 @@ public class CityPickerPopup<T> extends BottomPopupView {
 
     public CityPickerPopup<T> setItemTextSize(int textSize) {
         this.itemTextSize = textSize;
+        return this;
+    }
+
+    public CityPickerPopup<T> setLineSpace(float lineSpace) {
+        this.lineSpace = lineSpace;
+        return this;
+    }
+
+    /**
+     * 分割线颜色设置
+     */
+    public CityPickerPopup<T> setDividerColor(@ColorInt int dividerColor) {
+        this.dividerColor = dividerColor;
+        return this;
+    }
+
+    /**
+     * 未选中项文字颜色设置
+     */
+    public CityPickerPopup<T> setTextColorOut(@ColorInt int textColorOut) {
+        this.textColorOut = textColorOut;
+        return this;
+    }
+
+    /**
+     * 选中项文字颜色设置
+     */
+    public CityPickerPopup<T> setTextColorCenter(@ColorInt int textColorCenter) {
+        this.textColorCenter = textColorCenter;
         return this;
     }
 }

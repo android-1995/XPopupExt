@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import com.contrarywind.view.WheelView;
@@ -284,6 +285,33 @@ public class TimePickerPopup extends BottomPopupView {
     public TimePickerPopup setDateRange(Calendar startDate, Calendar endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
+        return this;
+    }
+
+    /**
+     * 分割线颜色设置
+     *
+     */
+    public TimePickerPopup setDividerColor(@ColorInt int dividerColor) {
+        this.dividerColor = dividerColor;
+        return this;
+    }
+
+    /**
+     * 未选中项文字颜色设置
+     *
+     */
+    public TimePickerPopup setTextColorOut(@ColorInt int textColorOut) {
+        this.textColorOut = textColorOut;
+        return this;
+    }
+
+    /**
+     * 选中项文字颜色设置
+     *
+     */
+    public TimePickerPopup setTextColorCenter(@ColorInt int textColorCenter) {
+        this.textColorCenter = textColorCenter;
         return this;
     }
 
