@@ -33,6 +33,7 @@ public class CityPickerPopup<T> extends BottomPopupView {
     private boolean isCyclic = false; //是否循环
     private CharSequence submitText; //确定的文案
     private CharSequence cancelText; //取消的文案
+    public int textColorCancel = Color.parseColor("#666666"); //取消的文字颜色
     private int itemsVisibleCount = 7;
     private int itemTextSize = 18;
 
@@ -64,7 +65,6 @@ public class CityPickerPopup<T> extends BottomPopupView {
                 dismiss();
             }
         });
-        btnConfirm.setTextColor(XPopup.getPrimaryColor());
         btnConfirm.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,8 +113,8 @@ public class CityPickerPopup<T> extends BottomPopupView {
     @Override
     protected void applyDarkTheme() {
         super.applyDarkTheme();
-        btnCancel.setTextColor(Color.parseColor("#999999"));
-        btnConfirm.setTextColor(Color.parseColor("#ffffff"));
+        btnCancel.setTextColor(textColorCancel);
+        btnConfirm.setTextColor(getResources().getColor(R.color._xpopup_white_color));
         getPopupImplView().setBackground(XPopupUtils.createDrawable(getResources().getColor(R.color._xpopup_dark_color),
                 popupInfo.borderRadius, popupInfo.borderRadius, 0, 0));
     }
@@ -122,8 +122,8 @@ public class CityPickerPopup<T> extends BottomPopupView {
     @Override
     protected void applyLightTheme() {
         super.applyLightTheme();
-        btnCancel.setTextColor(Color.parseColor("#666666"));
-        btnConfirm.setTextColor(Color.parseColor("#222222"));
+        btnCancel.setTextColor(textColorCancel);
+        btnConfirm.setTextColor(XPopup.getPrimaryColor());
         getPopupImplView().setBackground(XPopupUtils.createDrawable(getResources().getColor(R.color._xpopup_light_color),
                 popupInfo.borderRadius, popupInfo.borderRadius, 0, 0));
     }
@@ -234,6 +234,15 @@ public class CityPickerPopup<T> extends BottomPopupView {
      */
     public CityPickerPopup<T> setTextColorCenter(@ColorInt int textColorCenter) {
         this.textColorCenter = textColorCenter;
+        return this;
+    }
+
+
+    /**
+     * 取消文字颜色设置
+     */
+    public CityPickerPopup<T> setCancelTextColorOut(@ColorInt int textColor) {
+        this.textColorCancel = textColor;
         return this;
     }
 }
