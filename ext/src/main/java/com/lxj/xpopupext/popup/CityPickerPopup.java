@@ -241,7 +241,7 @@ public class CityPickerPopup<T> extends BottomPopupView {
     /**
      * 取消文字颜色设置
      */
-    public CityPickerPopup<T> setCancelTextColorOut(@ColorInt int textColor) {
+    public CityPickerPopup<T> setCancelTextColor(@ColorInt int textColor) {
         this.textColorCancel = textColor;
         return this;
     }

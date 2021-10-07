@@ -315,7 +315,7 @@ public class TimePickerPopup extends BottomPopupView {
     /**
      * 取消文字颜色设置
      */
-    public TimePickerPopup setCancelTextColorOut(@ColorInt int textColor) {
+    public TimePickerPopup setCancelTextColor(@ColorInt int textColor) {
         this.textColorCancel = textColor;
         return this;
     }
